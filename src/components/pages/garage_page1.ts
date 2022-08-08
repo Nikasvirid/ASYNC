@@ -3,7 +3,7 @@ import renderCarsControllers from '../controller/carControllers';
 import renderCreateCarComponent from '../animationCars/createCar';
 import renderGaragePagination from '../animationCars/garagePagination';
 import renderUpdateCarComponent from '../animationCars/updateCar';
-import { VIEW_NAME } from '../animationCars/';
+import { VIEW_NAME } from '../../constants';
 import store from '../../store';
 const renderGarageView = () => `
 <div class='garage-view'>

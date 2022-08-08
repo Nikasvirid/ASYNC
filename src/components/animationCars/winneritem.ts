@@ -1,7 +1,7 @@
-import { COUNT_WINNERS_PER_PAGE } from '../constants';
-import store from '../store';
-import { IWinner } from '../types/common';
-import drawCar from '../utils/drawCar';
+import { COUNT_WINNERS_PER_PAGE } from '../../constants';
+import store from '../../store';
+import { IWinner } from '../app/types/car';
+import drawCar from '../../utils/drawCar';
 
 const renderWinner = ({ name, color, wins, time }: IWinner, index: number) => {
     const countOfPrevCars = (store.winnersCurrentPageNum - 1) * COUNT_WINNERS_PER_PAGE;

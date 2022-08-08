@@ -1,6 +1,6 @@
-import { COUNT_CARS_PER_PAGE, ENDPOINTS, COUNT_WINNERS_PER_PAGE, DEFAULT_COUNT_OF_WINS } from './constants';
-import store from './store';
-import { CAR_STATUS, IWinner, IWinnerFromServer, ORDERS, SORTS, STATUS } from './types/common';
+import { COUNT_CARS_PER_PAGE, ENDPOINTS, COUNT_WINNERS_PER_PAGE, DEFAULT_COUNT_OF_WINS } from '../constants';
+import store from '../store';
+import { CAR_STATUS, IWinner, IWinnerFromServer, ORDERS, SORTS, STATUS } from '../components/app/types/car';
 
 const baseUrl = 'http://127.0.0.1:3000';
 const garageUrl = `${baseUrl}/garage`;
@@ -14,12 +14,12 @@ export const getCar = async (id: number) => {
   }
 
   if (response.status === STATUS.NOT_FOUND) {
-      // eslint-disable-next-line no-console
+      
       console.log(`Error: car id=${id} not found in winners`);
       return {};
   }
 
-  // eslint-disable-next-line no-alert
+  
   return alert('Server is not available!');
 };
 
@@ -36,7 +36,7 @@ export const createCar = async (name: string, color: string) => {
       const newCar = await response.json();
       return newCar;
   }
-  // eslint-disable-next-line no-alert
+  
   return alert('Server is not available!');
 };
 
@@ -55,11 +55,11 @@ export const updateCar = async (id: number, name: string, color: string) => {
   }
 
   if (response.status === STATUS.NOT_FOUND) {
-      // eslint-disable-next-line no-alert
+      
       return alert('Car not found!');
   }
 
-  // eslint-disable-next-line no-alert
+  
   return alert('Server is not available!');
 };
 
@@ -74,18 +74,18 @@ export const startOrStopCar = async (id: string, status: CAR_STATUS) => {
   }
 
   if (response.status === STATUS.NOT_FOUND) {
-      // eslint-disable-next-line no-console
+      
       return console.error('Error: Car with such id was not found in the garage.');
   }
 
   if (response.status === STATUS.BAD_REQUEST) {
-      // eslint-disable-next-line no-console
+      
       return console.error(
           'Error: Wrong parameters: "id" should be any positive number, "status" should be "started", "stopped" or "drive"'
       );
   }
 
-  // eslint-disable-next-line no-alert
+  
   return alert('Server is not available!');
 };
 
@@ -106,35 +106,35 @@ export const driveCar = async (id: string) => {
       }
 
       if (response.status === STATUS.NOT_FOUND) {
-          // eslint-disable-next-line no-console
+          
           return console.error(`Error: Car with id=${id} was not found in the garage.`);
       }
 
       if (response.status === STATUS.BAD_REQUEST) {
-          // eslint-disable-next-line no-console
+          
           return console.error(
               'Error: Wrong parameters: "id" should be any positive number, "status" should be "started", "stopped" or "drive"'
           );
       }
 
       if (response.status === STATUS.TOO_MANY_REQUESTS) {
-          // eslint-disable-next-line no-console
+          
           return console.error(
               ` Error for car with id=${id}: Drive already in progress. You can't run drive for the same car twice while it's not stopped.`
           );
       }
 
       if (response.status === STATUS.INTERNAL_SERVER_ERROR) {
-          // eslint-disable-next-line no-console
+          
           console.error(`Error: Car id=${id} has been stopped suddenly. It's engine was broken down.`);
           return { success: false };
       }
 
-      // eslint-disable-next-line no-alert
+      
       return alert('Server is not available!');
   } catch (error) {
       if (error.name === 'AbortError') {
-          // eslint-disable-next-line no-console
+          
           return console.error('Error: Drive fetch is terminated!');
       }
       throw error;
@@ -234,7 +234,7 @@ export const deleteCar = async (id: string) => {
   });
 
   if (response.status === STATUS.NOT_FOUND) {
-      // eslint-disable-next-line no-console
+      
       console.error(`Error: Car with id=${id} was not found in the garage.`);
   }
 };
@@ -248,7 +248,7 @@ export const deleteWinner = async (id: string) => {
       });
 
       if (response.status === STATUS.NOT_FOUND) {
-          // eslint-disable-next-line no-console
+          
           console.error(`Error: Car with id=${id} was not found in the winners table.`);
       }
   }

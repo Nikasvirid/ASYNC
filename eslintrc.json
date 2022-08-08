@@ -9,7 +9,7 @@
     "prettier"
   ],
   "parserOptions": {
-    "ecmaVersion": 2020,
+    "ecmaVersion": 20222,
     "sourceType": "module",
     "es6": true,
     "browser": true

@@ -1,6 +1,6 @@
 import { COUNT_WINNERS_PER_PAGE, DEFAULT_PAGE_NUMBER } from '../../constants';
 import store from '../../store';
-import { getMaxPageNum } from '../utils/paginate';
+import { getMaxPageNum } from '../../utils/paginate';
 
 const renderWinnersPagination = () => `
 <div class='pagination winners-pagination'>

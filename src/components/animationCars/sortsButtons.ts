@@ -1,4 +1,4 @@
-import { ORDERS, SORTS } from '../types/car';
+import { ORDERS, SORTS } from '../app/types/car';
 
 const renderSortsButtons = () => `
 <div class='buttons-sort'>

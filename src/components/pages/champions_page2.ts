@@ -1,8 +1,8 @@
 const renderWinnersView = () => `
 import renderSorts from '../';
-import renderWinnersPagination from '../components/winnersPagination';
-import renderWinnersTable from '../components/winnersTable';
-import { VIEW_NAME } from '../constants';
+import renderWinnersPagination from '../components/animationCars/winnersPagination';
+import renderWinnersTable from '../components/animationCars/winnersTable';
+import { VIEW_NAME } from '../../constants';
 import store from '../store';
 <div class='winners-view hide'>
   <div id='sorts'>${store.allWinnersCount === '0' ? '' : renderSorts()}</div>
