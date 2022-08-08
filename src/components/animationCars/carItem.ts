@@ -1,6 +1,6 @@
 import { ICar } from '../app/types/car';
 import drawCar from '../../utils/drawCar';
-import flagImg from '../../components/svg/';
+import flagImg from '../../components/svg/flag.svg';
 
 const renderCar = ({ id, name, color }: ICar) => `
 <div class='car-item'>
