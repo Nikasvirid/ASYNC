@@ -1,43 +1,12 @@
-class ChampionPage {
-    public element: HTMLDivElement = document.createElement("div");
-    private wrapperForTitleWinners = document.createElement("div");
-    private wrapperForTitlePage = document.createElement("div");
-    private wrapperForTableWinners = document.createElement("div");
-    private wrapperButtonPagination = document.createElement("div");
-  
-    renderPage(data: ChampionType[], minWinner: number, maxWinner: number) {
-      if (document.querySelector(".message") !== null) {
-        document.querySelector(".message")!.remove();
-      }
-      this.element.append(
-        this.addTitleWinners(data.length),
-        this.addTitlePage(),
-        this.addTableWinners(data, minWinner, maxWinner),
-        this.addButtonsPagination(data.length)
-      );
-      return this.element;
-    }
-    addTitleWinners(сount: number) {
-      this.wrapperForTitleWinners.innerHTML = "";
-      this.wrapperForTitleWinners.append(new TitlePageWinners().addTitleGarage(сount));
-      return this.wrapperForTitleWinners;
-    }
-    addTitlePage() {
-      this.wrapperForTitlePage.innerHTML = "";
-      this.wrapperForTitlePage.append(new TitlePageWinners().addTitlePage());
-      return this.wrapperForTitlePage;
-    }
-    addTableWinners(data: ChampionType[], minWinner: number, maxWinner: number) {
-      this.wrapperForTableWinners.append(new TableWinners().renderTable(data, minWinner, maxWinner));
-      return this.wrapperForTableWinners;
-    }
-    addButtonsPagination(count: number) {
-      this.wrapperButtonPagination.classList.add("buttons-win-pagination");
-      this.wrapperButtonPagination.append(
-        new ButtonPaginationWinners().addButtonPrev(),
-        new ButtonPaginationWinners().addButtonNext(count)
-      );
-      return this.wrapperButtonPagination;
-    }
-  }
-  export default ChampionPage;
+const renderWinnersView = () => `
+<div class='winners-view hide'>
+  <div id='sorts'>${store.allWinnersCount === '0' ? '' : renderSorts()}</div>
+  <h2 id='winners-title'>${VIEW_NAME.winners} (${store.allWinnersCount})</h2>
+  <h3 id='winners-current-page-num'>Page#${store.winnersCurrentPageNum}</h3>
+  <div id='winners'>
+  ${store.allWinnersCount === '0' ? '<p>There are no winners yet</p>' : renderWinnersTable()}
+  </div>
+   ${renderWinnersPagination()}
+</div>`;
+
+export default renderWinnersView;
