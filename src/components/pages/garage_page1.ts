@@ -1,3 +1,10 @@
+import renderCars from '../animationCars/cars';
+import renderCarsControllers from '../controller/carControllers';
+import renderCreateCarComponent from '../animationCars/createCar';
+import renderGaragePagination from '../animationCars/garagePagination';
+import renderUpdateCarComponent from '../animationCars/updateCar';
+import { VIEW_NAME } from '../animationCars/';
+import store from '../../store';
 const renderGarageView = () => `
 <div class='garage-view'>
   ${renderCreateCarComponent()}
