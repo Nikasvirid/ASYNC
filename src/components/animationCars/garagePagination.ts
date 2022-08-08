@@ -1,6 +1,6 @@
 import { COUNT_CARS_PER_PAGE, DEFAULT_PAGE_NUMBER } from '../../constants';
 import store from '../../store';
-import { getMaxPageNum } from '../../utils/generateCars';
+import { getMaxPageNum } from '../../utils/paginate';
 
 const renderGaragePagination = () => `
 <div class='pagination'>
